@@ -1,37 +1,7 @@
 <template>
     <Head title="Welcome" />
 
-    <div class="block w-full bg-red-500">
-        <div
-            v-if="canLogin"
-            class="fixed top-0 right-0 z-20 hidden px-6 py-4 sm:block"
-        >
-            <Link
-                v-if="$page.props.user"
-                :href="route('dashboard')"
-                class="text-sm text-gray-700 underline"
-            >
-                Dashboard
-            </Link>
-
-            <template v-else>
-                <Link
-                    :href="route('login')"
-                    class="text-sm text-gray-700 underline"
-                >
-                    Log in
-                </Link>
-
-                <Link
-                    v-if="canRegister"
-                    :href="route('register')"
-                    class="ml-4 text-sm text-gray-700 underline"
-                >
-                    Register
-                </Link>
-            </template>
-        </div>
-
+    <div class="block w-full bg-[#E5E5E5]">
         <div
             class="
                 w-full
@@ -47,6 +17,57 @@
                 src="../../../public/images/Leb-Light.jpg"
                 class="absolute inset-0 object-cover w-full h-screen opacity-50"
             />
+
+            <div
+                v-if="canLogin"
+                class="
+                    absolute
+                    top-0
+                    right-0
+                    w-full
+                    px-6
+                    py-4
+                    flex
+                    items-center
+                    justify-between
+                    sm:justify-end
+                    mx-auto
+                    max-w-6xl
+                    xl:max-w-7xl
+                    2xl:max-w-[1440px]
+                "
+            >
+                <Link
+                    v-if="$page.props.user"
+                    :href="route('dashboard')"
+                    class="text-sm text-gray-700 underline"
+                >
+                    Dashboard
+                </Link>
+
+                <template v-else>
+                    <Link
+                        :href="route('login')"
+                        class="text-sm xl:text-[1.0vw] text-gray-700 underline"
+                    >
+                        تسجيل دخول
+                    </Link>
+
+                    <Link
+                        v-if="canRegister"
+                        :href="route('register')"
+                        class="
+                            ml-4
+                            text-sm
+                            xl:text-[1.0vw]
+                            text-gray-700
+                            underline
+                        "
+                    >
+                        تسجيل حساب جديد
+                    </Link>
+                </template>
+            </div>
             <div
                 class="
                     absolute
@@ -56,9 +77,9 @@
                     flex flex-col
                     items-center
                     justify-center
-                    max-w-6xl
                     min-h-screen
                     mx-auto
+                    max-w-6xl
                     xl:max-w-7xl
                     2xl:max-w-[1440px]
                     sm:justify-between sm:flex-row
@@ -70,19 +91,68 @@
                 >
                     GDUP
                 </div>
-
                 <div
-                    class="
-                        text-center
-                        mt-16
-                        sm:mt-0
-                        text-4xl
-                        font-extrabold
-                        text-[#2747A9]
-                        textSide
-                    "
+                    class="flex flex-col items-center mt-8 sm:items-end sm:mt-0"
                 >
-                    دليل التنظيم المدني الشامل
+                    <div
+                        class="
+                            text-center text-4xl
+                            sm:text-right
+                            mb-8
+                            sm:mt-0
+                            relative
+                            font-extrabold
+                            text-[#2747A9]
+                            textSide
+                        "
+                    >
+                        دليل التنظيم المدني الشامل
+                    </div>
+                    <div
+                        class="
+                            max-w-2xl
+                            text-center
+                            sm:text-right
+                            text-md
+                            sm:text-lg
+                            font-bold
+                            text-[#1E1E1E]
+                            mb-8
+                            bg-[#D3D3D3]
+                            rounded-lg
+                            bg-opacity-75
+                            p-4
+                            shadow
+                        "
+                    >
+                        دليلك الشامل في التنظيم المدني من برامج احتساب رسوم الى
+                        خرائط وأنظمة توجيهية بالاضافة الى قوانين ومراسيم وخلافه
+                    </div>
+                    <button
+                        class="
+                            w-52
+                            h-10
+                            flex
+                            items-center
+                            justify-center
+                            text-sm
+                            sm:text-md
+                            font-bold
+                            text-[#353535]
+                            bg-[#FF5E5E]
+                            rounded
+                            sm:rounded-md
+                            shadow-md
+                            hover:bg-[#D14D4D]
+                            cursor-pointer
+                            focus:ring-2
+                            focus:outline-none
+                            focus:ring-[#D14D4D]
+                            focus:ring-offset-2
+                        "
+                    >
+                        تسجيل دخول
+                    </button>
                 </div>
             </div>
         </div>
@@ -125,7 +195,8 @@
                         font-serif
                         text-9xl text-[#D3D3D3]
                         transform
-                        scale-y-[2.5]
+                        scale-y-[1.5]
+                        sm:scale-y-[2.5]
                         drop-shadow
                     "
                 >
@@ -143,7 +214,7 @@
                             sm:mt-0
                             text-4xl
                             font-extrabold
-                            text-[#CE2E2E]
+                            text-[#9d0000]
                             relative
                             textSide
                         "
@@ -154,13 +225,14 @@
                         class="
                             text-center
                             sm:text-right
-                            text-lg
+                            text-md
+                            sm:text-lg
                             font-bold
                             text-[#1E1E1E]
                             mb-8
                             bg-[#E5E5E5]
                             rounded-lg
-                            bg-opacity-75
+                            bg-opacity-50
                             p-4
                             shadow
                             max-w-3xl
@@ -179,8 +251,8 @@
                             text-sm
                             sm:text-md
                             font-bold
-                            text-[#353535]
-                            bg-[#FF5E5E]
+                            text-gray-100
+                            bg-[#BB4242]
                             rounded
                             sm:rounded-md
                             shadow-md
@@ -191,6 +263,8 @@
                             focus:ring-[#D14D4D]
                             focus:ring-offset-2
                         "
+                        name="Zoning"
+                        aria-label="tables of zones"
                     >
                         أنظمة توجيهية
                     </button>
@@ -236,7 +310,8 @@
                         font-serif
                         text-9xl text-[#DFDFDF]
                         transform
-                        scale-y-[2.5]
+                        scale-y-[1.5]
+                        sm:scale-y-[2.5]
                         drop-shadow
                     "
                 >
@@ -266,7 +341,8 @@
                             max-w-3xl
                             text-center
                             sm:text-right
-                            text-lg
+                            text-md
+                            sm:text-lg
                             font-bold
                             text-[#1E1E1E]
                             mb-8
@@ -348,7 +424,8 @@
                         font-serif
                         text-9xl text-[#D3D3D3]
                         transform
-                        scale-y-[2.5]
+                        scale-y-[1.5]
+                        sm:scale-y-[2.5]
                         drop-shadow
                     "
                 >
@@ -377,7 +454,8 @@
                         class="
                             text-center
                             sm:text-right
-                            text-lg
+                            text-md
+                            sm:text-lg
                             font-bold
                             text-[#1E1E1E]
                             mb-8
@@ -460,7 +538,8 @@
                         font-serif
                         text-9xl text-[#DFDFDF]
                         transform
-                        scale-y-[2.5]
+                        scale-y-[1.5]
+                        sm:scale-y-[2.5]
                         drop-shadow
                     "
                 >
@@ -490,7 +569,8 @@
                             max-w-3xl
                             text-center
                             sm:text-right
-                            text-lg
+                            text-md
+                            sm:text-lg
                             font-bold
                             text-[#1E1E1E]
                             mb-8
@@ -503,8 +583,7 @@
                     >
                         سوف تجد العديد من القوانين والمراسيم والمذكرات وخلافه من
                         المعلومات المهمة مع التعديلات التي طرأت عليها، كما يمكنك
-                        البحث ضمنها. نعمل جاهدين على إضافة كل جديد وكل ما له
-                        صلة. نتمنى أن نسمع آرائكم ومقترحاتكم
+                        البحث ضمنها
                     </div>
                     <button
                         class="
@@ -536,6 +615,7 @@
         </div>
         <div
             class="
+                pb-5
                 w-full
                 relative
                 bg-[#393939]
@@ -545,10 +625,21 @@
             "
         >
             <div
-                class="grid w-full grid-cols-1 p-4  sm:grid-flow-col sm:grid-rows-4 sm:grid-cols-2 gap-y-3"
+                class="
+                    grid
+                    w-full
+                    max-w-6xl
+                    xl:max-w-7xl
+                    2xl:max-w-[1440px]
+                    mx-auto
+                    grid-cols-1
+                    p-4
+                    sm:grid-flow-col sm:grid-rows-4 sm:grid-cols-2
+                    gap-y-3
+                "
             >
                 <p
-                    class="text-lg font-bold tracking-widest text-center text-red-600  col-span-full"
+                    class="text-lg font-bold tracking-widest text-center text-gray-100  col-span-full"
                 >
                     Eng. Bassam C. AAWAR
                 </p>
